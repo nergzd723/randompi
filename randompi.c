@@ -4,6 +4,7 @@
 #include <stdint.h>
 #include <time.h>
 
+#define check_coprimity(a,b) gcd(a,b) == 1
 uint32_t gcd(uint32_t a, uint32_t b)
 {
     uint32_t temp;
@@ -16,14 +17,11 @@ uint32_t gcd(uint32_t a, uint32_t b)
     }
     return a;
 }
-int check_coprimity(uint32_t a, uint32_t b){
-    return gcd(a, b) == 1;
-}
 
 int main(int argc, char** argv){
     uint32_t coprime_counter = 0;
     uint32_t sample_size = 1000000;
-    srand(time(NULL) % randy());
+    srand(time(NULL) % rand());
 
     for (uint32_t i = 0; i < sample_size; i++){
         if (check_coprimity(rand(), rand())){
