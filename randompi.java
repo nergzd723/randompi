@@ -6,13 +6,14 @@ class randompi
 	}
 	static double gcd(double a,double b)
 	{
-		if (a == 0 || b == 0)
-			return 0;	
-		if (a == b)
-			return a;
-		if (a > b)
-			return gcd(a-b, b);
-		return gcd(a, b-a);
+		double temp;
+		while(b!=0)
+		{
+			temp = a%b;
+			a=b;
+			b=temp;
+		}
+		return a;
 	}
 	static int coprime(double a, double b) {
 		int cnt=0;
